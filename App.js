@@ -2,15 +2,16 @@ const http = require("http");
 const express = require("express");
 const port = process.env.PORT || 4000;
 const app = express();
-
+const route = require("./routes")
 const server = http.createServer(app);
+
+
+app.use("/blog",route)
 
 app.get("/", (req, res) => {
   res.send("hello");
 });
-app.get("/about", (req, res) => {
-    res.send("skillers page");
-  });
+
   
 
 
