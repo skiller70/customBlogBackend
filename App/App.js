@@ -1,10 +1,10 @@
+const port = process.env.PORT || 4000;
 const http = require("http");
 const express = require("express");
-const port = process.env.PORT || 4000;
 const app = express();
 const router = require("./Routes/router")
 const server = http.createServer(app);
-
+require("./Database/mongooseConnect")
 
 app.use("/blog",router)
 
