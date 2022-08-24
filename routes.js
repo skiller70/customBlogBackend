@@ -1,17 +1,17 @@
 const express = require("express")
 
-const route = express.Router()
+const router = express.Router()
 
 
 
-route("/about").get((req, res) => {
+router.route("/about").get((req, res) => {
     res.send("skillers page");
   });
 
-route("/owner").get((req,res)=>{
+router.route("/owner").get((req,res)=>{
 
     res.send("owner is skiller")
 })
 
 
-module.exports = route;
+module.exports = router;
