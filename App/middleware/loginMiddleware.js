@@ -2,6 +2,7 @@ const mongoModel = require("../Database/mongooseSchema");
 const bcrypt = require("bcryptjs");
 
 module.exports = loginAuthentication = async (req, res, next) => {
+  console.log(req.body)
   try {
     const { username, password } = req.body;
 
@@ -26,7 +27,7 @@ module.exports = loginAuthentication = async (req, res, next) => {
 
       res.end();
     } else {
-      return res.status(400).send("incorrect password");
+      return setTimeout(()=>{ res.status(400).send("incorrect password");},3000)
     }
   } catch (error) {
     if (error) {

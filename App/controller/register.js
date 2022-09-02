@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const mongoModel = require("../Database/mongooseSchema");
 
 module.exports = register = async (req, res) => {
+  console.log(req.body)
   try {
     const { name, username, email, password, dob } = req.body;
 
@@ -23,7 +24,7 @@ module.exports = register = async (req, res) => {
       });
 
       const data = await user.save();
-        
+
       const token = jwt.sign(
         {
           id: data._id,
