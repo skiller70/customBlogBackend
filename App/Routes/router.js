@@ -10,7 +10,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(
   cors({
     origin: "https://luckyskiller.herokuapp.com/blog",
-    credentials: true,
+    
   })
 );
 
