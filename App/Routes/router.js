@@ -9,7 +9,7 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(
   cors({
-    origin: 'https://main--remarkable-macaron-2714af.netlify.app/',
+    origin: ['https://main--remarkable-macaron-2714af.netlify.app/',"http://localhost:4000/blog"],
     credentials: true,
   
   })
