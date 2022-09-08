@@ -1,10 +1,12 @@
 const express = require("express");
 const mongoModel = require("../Database/mongooseSchema");
 const middleware = require("../middleware/middlewares")
+
 const router = express.Router();
 const bodyParser = require("body-parser");
 const control = require("../controller/allController")
 const cors = require("cors");
+require("../middleware/cloudinaryConfig")
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(
@@ -87,11 +89,12 @@ const post = await mongoModel.BLOG_POST.findById({_id:"630f0a29aabcf812894ae3f6"
 console.log(post)
 res.send(post)
 })
-
+router.route("/getBlogs").get(control.getBlogs)
 router.route("/postLike").get(control.postLike)
 router.route("/comments").post(control.comments)
 router.route("/register").post(control.register)
 router.route("/login").post(middleware.login,control.login)
-router.route("/blogPost").post(middleware.upload.single("blogPost"),control.blogPost)
+router.route("/blogPost").post(middleware.upload.blogPosts.single("blogPost"),control.blogPost)
+router.route("/deletePost:id").delete(control.deletePost)
 
 module.exports = router;

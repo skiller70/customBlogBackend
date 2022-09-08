@@ -19,6 +19,8 @@ const Blogs = mongoose.Schema({
   title : {type : String},
   subject : {type : String},
   content : {type : String},
+  cloudinary_id : {type : String},
+  category : {type : String},
   date : {type : Date,default: Date.now},
   image : {type : String},
   likes : [{type:mongoose.Schema.Types.ObjectId ,ref:"USER_DATA"}],

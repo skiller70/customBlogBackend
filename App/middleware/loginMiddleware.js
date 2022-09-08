@@ -2,7 +2,7 @@ const mongoModel = require("../Database/mongooseSchema");
 const bcrypt = require("bcryptjs");
 
 module.exports = loginAuthentication = async (req, res, next) => {
-  console.log(req.body)
+ 
   try {
     const { username, password } = req.body;
 
