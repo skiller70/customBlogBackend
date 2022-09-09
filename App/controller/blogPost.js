@@ -8,8 +8,8 @@ module.exports = async (req, res) => {
     const { title, subject, content, author } = req.body;
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: "blogPost",
-      
-    });
+      resource_type: "image",
+    },(err,data)=>{if(err)console.log(err)});
     console.log(result);
     const image = result.secure_url;
     const cloudinary_id = result.public_id;

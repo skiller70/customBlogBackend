@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const router = require("./Routes/router");
 const server = http.createServer(app);
+require("./middleware/cloudinaryConfig")
 require("./Database/mongooseConnect");
 
 app.use("/blog", router);
