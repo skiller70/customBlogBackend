@@ -2,13 +2,13 @@ const mongoModel = require("../Database/mongooseSchema");
 const cloudinary = require("cloudinary").v2;
 
 module.exports = async (req, res) => {
-  console.log(req.body);
+  console.log(req.file);
 
   try {
     const { title, subject, content, author } = req.body;
     const result = await cloudinary.uploader.upload(req.file.path, {
       folder: "blogPost",
-      resource_type: "image",
+      
     });
     console.log(result);
     const image = result.secure_url;
