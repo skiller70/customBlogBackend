@@ -5,6 +5,7 @@ const comments = require("./comments")
 const postLike = require("./blogLike")
 const getBlogs = require("./getBlogs")
 const deletePost = require("./deleteBlog")
+const searchUsername = require("./searchUsername")
 const control = {
     register,
     login,
@@ -12,7 +13,8 @@ const control = {
     comments,
     postLike,
     getBlogs,
-    deletePost
+    deletePost,
+    searchUsername
 
 
 }

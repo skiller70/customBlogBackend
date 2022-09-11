@@ -95,6 +95,7 @@ router.route("/comments").post(control.comments)
 router.route("/register").post(control.register)
 router.route("/login").post(middleware.login,control.login)
 router.route("/blogPost").post(middleware.upload.blogPosts.single("blogPost"),control.blogPost)
+router.route("/searchUsername:username").get(control.searchUsername)
 router.route("/deletePost:id").delete(control.deletePost)
 
 module.exports = router;

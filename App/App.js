@@ -12,7 +12,7 @@ app.use("/blog", router);
 app.get("/", (req, res) => {
   res.send("hello");
 });
-
+  
 server.listen(port, () => {
   console.log(`server is running on this ${port}!!`);
 });
