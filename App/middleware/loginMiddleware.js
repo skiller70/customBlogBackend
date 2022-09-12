@@ -2,10 +2,10 @@ const mongoModel = require("../Database/mongooseSchema");
 const bcrypt = require("bcryptjs");
 
 module.exports = loginAuthentication = async (req, res, next) => {
- 
-  try {
-    const { username, password } = req.body;
 
+  try {
+    const {password } = req.body;
+    const username = req.body.username.toLowerCase()
     const oldAuth = await mongoModel.USER_DATA.find({ username });
    
     if (!oldAuth[0]) {

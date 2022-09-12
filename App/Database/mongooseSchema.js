@@ -7,7 +7,7 @@ const testBlog = mongoose.Schema({
 
 const register = mongoose.Schema({
   name : {type : String},
-  username : {type : String},
+  username : {type : String,lowercase: true},
   email : {type : String},
   password : {type : String},
   dateOfBirth : {type : String},
