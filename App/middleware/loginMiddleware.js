@@ -9,7 +9,7 @@ module.exports = loginAuthentication = async (req, res, next) => {
     const oldAuth = await mongoModel.USER_DATA.find({ username });
    
     if (!oldAuth[0]) {
-      return res.status(400).send("invalid username ");
+      return res.status(201).send("invalid username or password");
     }
 
     if (oldAuth && bcrypt.compareSync(password, oldAuth[0].password)) {
@@ -27,11 +27,11 @@ module.exports = loginAuthentication = async (req, res, next) => {
 
       res.end();
     } else {
-      return setTimeout(()=>{ res.status(400).send("incorrect password");},3000)
+      return  res.status(201).send("invalid username or password");
     }
   } catch (error) {
     if (error) {
-      return res.status(400).send("failed to login");
+      return res.status(500).send("server error failed to login");
     }
   }
 };

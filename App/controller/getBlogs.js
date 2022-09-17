@@ -11,8 +11,9 @@ module.exports = async (req, res) => {
       .skip(page)
       .populate("author", "username")
       .sort({ _id: -1 });
-
-    return res.status(200).json({ data: postData, lastPage });
+      
+    setTimeout(()=>{return res.status(200).json({ data: postData,pageParam : lastPage });},2000)
+    
   } catch (error) {
     if (error) return res.send("failed to fetch");
   }
