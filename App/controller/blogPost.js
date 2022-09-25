@@ -2,7 +2,7 @@ const mongoModel = require("../Database/mongooseSchema");
 const cloudinary = require("cloudinary").v2;
 
 module.exports = async (req, res) => {
-  console.log(req.file);
+
 
   try {
     const { title, subject, content, author } = req.body;
@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
       folder: "blogPost",
       resource_type: "image",
     },(err,data)=>{if(err)console.log(err)});
-    console.log(result);
+   
     const image = result.secure_url;
     const cloudinary_id = result.public_id;
     const category = req.body.category || "";

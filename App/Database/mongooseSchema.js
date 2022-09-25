@@ -29,7 +29,7 @@ const Blogs = mongoose.Schema({
 
 })
 const Comments = mongoose.Schema({
-  author : [{type:mongoose.Schema.Types.ObjectId ,ref:"USER_DATA"}],
+  author : {type:mongoose.Schema.Types.ObjectId ,ref:"USER_DATA"},
   comment : {type : String},
   date : {type : Date,default: Date.now},
   idOfBlog : {type:mongoose.Schema.Types.ObjectId ,ref:"BLOG_POST"}

@@ -6,6 +6,8 @@ const postLike = require("./blogLike")
 const getBlogs = require("./getBlogs")
 const deletePost = require("./deleteBlog")
 const searchUsername = require("./searchUsername")
+const getComment = require("./getComments")
+const updateBlog = require("./updateBlog")
 const control = {
     register,
     login,
@@ -14,7 +16,9 @@ const control = {
     postLike,
     getBlogs,
     deletePost,
-    searchUsername
+    searchUsername,
+    getComment,
+    updateBlog
 
 
 }

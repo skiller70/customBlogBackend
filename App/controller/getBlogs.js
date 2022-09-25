@@ -3,6 +3,7 @@ const mongoModel = require("../Database/mongooseSchema");
 module.exports = async (req, res) => {
   const limit = req.query.limit;
   const page = (req.query.page - 1) * limit;
+ 
   try {
     const allDataLength = await mongoModel.BLOG_POST.find({});
     const lastPage = Math.ceil(allDataLength.length / 3);
@@ -12,7 +13,7 @@ module.exports = async (req, res) => {
       .populate("author", "username")
       .sort({ _id: -1 });
       
-    setTimeout(()=>{return res.status(200).json({ data: postData,pageParam : lastPage });},2000)
+     return res.status(200).json({ data: postData,pageParam : lastPage })
     
   } catch (error) {
     if (error) return res.send("failed to fetch");
