@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
 
       const comments = await mongoModel.USER_COMMENTS.find({ idOfBlog :postId}).limit(4).skip(pages).populate("author", "username");
      
-      return res.status(201).send(comments);  
+      return res.status(201).send(comments);
     }
    
   } catch (error) {

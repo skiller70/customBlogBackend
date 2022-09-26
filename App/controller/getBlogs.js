@@ -10,7 +10,7 @@ module.exports = async (req, res) => {
     const postData = await mongoModel.BLOG_POST.find({})
       .limit(limit)
       .skip(page)
-      .populate("author", "username")
+      .populate("author", "name username")
       .sort({ _id: -1 });
       
      return res.status(200).json({ data: postData,pageParam : lastPage })
