@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const mongoModel = require("../Database/mongooseSchema");
 
 module.exports = register = async (req, res) => {
-  console.log(req.body)
+  
   try {
     const { name, username, email, password, dob } = req.body;
 

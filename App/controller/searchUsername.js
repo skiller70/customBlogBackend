@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
     const user = await mongoModel.USER_DATA.find({
       username: req.params.username,
     });
-    console.log(user)
+  
   if(user[0]){
   return res.status(201).send(true)
   }else{
